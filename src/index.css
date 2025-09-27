@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*{
+  margin:0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+
+body {
+  @apply font-montserrat;
+  font-optical-sizing: auto;
+  background-color:#f0f0f0;
+  
+  
+}
+
+.container{
+    width:90% ;
+    margin:auto;
+}
+
+
+
+.searchbox input::placeholder {
+ color:red !important;
+}
+.link:hover{
+  color:#f87171 !important;
+}
+.MuiBadge-badge{
+  background-color: #fca5a5 !important;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: black;   /* 👈 arrows visible karne ke liye color set */
+  font-size: 30px; /* size thoda bada */
+}
