@@ -4,6 +4,8 @@ import BasicSlider from "../ImageSlider/BasicSlider";
 import FreeShipping from "../Section/FreeShipping";
 import AdsSlider from "../ImageSlider/AdsSlider";
 import TabSection from "../Section/TabSection";
+import FeaturedProducts from "../Section/FeaturedProducts";
+import ServiceHighlights from "../Section/ServiceHighlights";
 
 
 const Home = () => {
@@ -14,13 +16,10 @@ const Home = () => {
       <FreeShipping/>
       {/* <AdsSlider/> */}
        <TabSection/>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+       <FeaturedProducts/>
+       <ServiceHighlights/>
+       
+     
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import './TabsComponent.css'
 
 const Beauty= () => {
   const allItems = [...Array(50)].map((_, index) => ({
