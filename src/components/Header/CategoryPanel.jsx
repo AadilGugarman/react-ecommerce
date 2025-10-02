@@ -1,4 +1,6 @@
-import React, { useState } from "react";
+import React, { useState , Fragment} from "react";
+import { Link } from "react-router-dom";
+
 import {
   Box,
   Drawer,
@@ -44,6 +46,7 @@ const categories = [
 ];
 
 const CategoryPanel = () => {
+ 
   const [open, setOpen] = useState(false);
   const [submenuOpen, setSubmenuOpen] = useState({});
 
@@ -61,19 +64,19 @@ const CategoryPanel = () => {
 const renderCategories = (items) => (
   <List>
     {items.map((item) => (
-      <React.Fragment key={item.name || item}>
+      <Fragment key={item.name || item}>
         <ListItem disablePadding>
           <ListItemButton
             onClick={() => item.children && handleToggle(item.name)}
           >
             <ListItemText
               primary={
-                <a
+                <Link
                   href={`/${item.name.toLowerCase().replace(/\s/g, "-")}`}
                   className="text-black hover:text-blue-600"
                 >
                   {item.name || item}
-                </a>
+                </Link>
               }
             />
             {item.children &&
@@ -97,7 +100,7 @@ const renderCategories = (items) => (
             </Box>
           </Collapse>
         )}
-      </React.Fragment>
+      </Fragment>
     ))}
   </List>
 );

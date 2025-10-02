@@ -11,16 +11,36 @@ const Navbar = () => {
   const navItems = [
     { name: "Home", path: "/", submenus: [] },
     { name: "Fashion", path: "/fashion", submenus: ["Men", "Women", "Kids"] },
-    { name: "Electronics", path: "/electronics", submenus: ["Mobiles", "Laptops", "TV"] },
-    { name: "Beauty", path: "/beauty", submenus: ["Makeup", "Skincare", "Haircare"] },
-    { name: "Jewellery", path: "/jewellery", submenus: ["Rings", "Necklaces", "Bracelets"] },
-    { name: "Wellness", path: "/wellness", submenus: ["Supplements", "Fitness"] },
+    {
+      name: "Electronics",
+      path: "/electronics",
+      submenus: ["Mobiles", "Laptops", "TV"],
+    },
+    {
+      name: "Beauty",
+      path: "/beauty",
+      submenus: ["Makeup", "Skincare", "Haircare"],
+    },
+    {
+      name: "Jewellery",
+      path: "/jewellery",
+      submenus: ["Rings", "Necklaces", "Bracelets"],
+    },
+    {
+      name: "Wellness",
+      path: "/wellness",
+      submenus: ["Supplements", "Fitness"],
+    },
     { name: "Bags", path: "/bags", submenus: ["Handbags", "Backpacks"] },
-    { name: "Groceries", path: "/groceries", submenus: ["Vegetables", "Snacks", "Beverages"] },
+    {
+      name: "Groceries",
+      path: "/groceries",
+      submenus: ["Vegetables", "Snacks", "Beverages"],
+    },
   ];
 
   // nav items to hide on medium and above
-  const hiddenOnMedium = ["Groceries", "Bags","Wellness"];
+  const hiddenOnMedium = ["Groceries", "Bags", "Wellness"];
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -51,54 +71,54 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Nav */}
-         {/* Desktop Nav */}
-<div className="items-center hidden gap-4 md:flex">
-  {navItems.map((item, index) => (
-    <div
-      key={index}
-      className={`relative group ${
-        hiddenOnMedium.includes(item.name) ? "md:hidden lg:flex" : ""
-      }`}
-    >
-      {item.submenus && item.submenus.length > 0 ? (
-        <div className="relative">
-          <button
-            className={`flex items-center px-3 py-2 text-sm font-semibold hover:text-blue-600 ${isActiveLink(
-              item.path
-            )}`}
-          >
-            {item.name}
-            <FaChevronDown className="ml-1 text-xs" />
-          </button>
 
-          <div className="absolute left-0 z-50 hidden w-48 bg-white border shadow-lg group-hover:block">
-            {item.submenus.map((sub, subIndex) => (
-              <Link
-                key={subIndex}
-                to={`${item.path}/${sub.toLowerCase()}`}
-                className={`block px-4 py-2 text-sm hover:bg-gray-100 ${isActiveLink(
-                  `${item.path}/${sub.toLowerCase()}`
-                )}`}
+          <div className="items-center hidden gap-4 md:flex">
+            {navItems.map((item, index) => (
+              <div
+                key={index}
+                className={`relative group ${
+                  hiddenOnMedium.includes(item.name) ? "md:hidden lg:flex" : ""
+                }`}
               >
-                {sub}
-              </Link>
+                {item.submenus && item.submenus.length > 0 ? (
+                  <div className="relative">
+                    <Link
+                      to={item.path}
+                      className={`flex items-center px-3 py-2 text-sm font-semibold hover:text-blue-600 ${isActiveLink(
+                        item.path
+                      )}`}
+                    >
+                      {item.name}
+                      <FaChevronDown className="ml-1 text-xs" />
+                    </Link>
+
+                    <div className="absolute left-0 z-50 hidden w-48 bg-white border shadow-lg group-hover:block">
+                      {item.submenus.map((sub, subIndex) => (
+                        <Link
+                          key={subIndex}
+                          to={`${item.path}/${sub.toLowerCase()}`}
+                          className={`block px-4 py-2 text-sm hover:bg-gray-100 ${isActiveLink(
+                            `${item.path}/${sub.toLowerCase()}`
+                          )}`}
+                        >
+                          {sub}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                ) : (
+                  <Link
+                    to={item.path}
+                    className={`px-3 py-2 text-sm font-semibold hover:text-blue-600 ${isActiveLink(
+                      item.path
+                    )}`}
+                  >
+                    {item.name}
+                  </Link>
+                )}
+              </div>
             ))}
           </div>
-        </div>
-      ) : (
-        <Link
-          to={item.path}
-          className={`px-3 py-2 text-sm font-semibold hover:text-blue-600 ${isActiveLink(
-            item.path
-          )}`}
-        >
-          {item.name}
-        </Link>
-      )}
-    </div>
-  ))}
-</div>
-
 
           {/* Mobile Hamburger */}
           <div className="md:hidden">
@@ -119,7 +139,8 @@ const Navbar = () => {
                 <div key={index}>
                   {item.submenus && item.submenus.length > 0 ? (
                     <div>
-                      <button
+                      <Link
+                        to={item.path}
                         onClick={() => toggleSubmenu(index)}
                         className={`flex justify-between items-center w-full px-3 py-3 text-left font-semibold ${isActiveLink(
                           item.path
@@ -131,7 +152,7 @@ const Navbar = () => {
                         ) : (
                           <FaChevronDown />
                         )}
-                      </button>
+                      </Link>
 
                       {activeSubmenu === index && (
                         <div className="ml-4">
