@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Sidebar from "../Sidebar/Sidebar";
 import { TbShoppingCartPlus } from "react-icons/tb";
 import { IoMdHeartEmpty } from "react-icons/io";
+import { IoClose } from "react-icons/io5";
 
 const CategoryPage = ({ title, products }) => {
   const [visibleCount, setVisibleCount] = useState(12);
@@ -19,7 +20,7 @@ const CategoryPage = ({ title, products }) => {
       </div>
 
       {/* 🔹 Mobile Filter Button */}
-      <div className="block mb-3 md:hidden">
+      <div className="fixed bottom-0 z-10 block mb-3 md:hidden">
         <button
           onClick={() => setOpenSidebar(true)}
           className="px-4 py-2 text-white bg-blue-500 rounded hover:bg-blue-600"
@@ -38,12 +39,12 @@ const CategoryPage = ({ title, products }) => {
           ></div>
 
           {/* Sidebar Drawer */}
-          <div className="absolute left-0 w-3/4 h-full p-4 bg-white shadow-lg">
+          <div className="absolute right-0 w-3/4 h-full p-4 bg-white shadow-lg">
             <button
               onClick={() => setOpenSidebar(false)}
               className="mb-4 text-sm text-gray-600 hover:text-black"
             >
-              ✕ Close
+              <IoClose className="text-xl" />
             </button>
             <Sidebar />
           </div>
@@ -51,9 +52,11 @@ const CategoryPage = ({ title, products }) => {
       )}
 
       {/* 🔹 Products Grid */}
-      <div className="w-full p-2 ml-0 bg-gray-100 border md:ml-2 md:w-3/4 col2">
-        <h1 className="mb-4 text-2xl font-bold">{title}</h1>
-        <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
+      <div className="w-full md:w-3/4 col2">
+<h1 className="ml-3 text-xl font-semibold bg-inherit">{title}</h1>
+      <div className="  custom-scrollbar h-[550px] overflow-auto  bg-gray-100 p-2 border ">
+        
+        <div className="grid w-full grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-4">
           {products.slice(0, visibleCount).map((item, idx) => (
             <div
               key={idx}
@@ -96,6 +99,7 @@ const CategoryPage = ({ title, products }) => {
           </div>
         )}
       </div>
+    </div>
     </div>
   );
 };

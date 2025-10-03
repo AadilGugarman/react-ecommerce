@@ -16,9 +16,9 @@ const Footer = () => {
     <footer className="w-full px-8 py-10 bg-gray-100 border-t shadow-md">
       <div className="flex flex-col gap-10 mx-auto max-w-7xl md:flex-row">
         {/* Contact Us */}
-        <div className="flex flex-col w-full gap-3 border-r md:w-1/3 md:pr-6">
+        <div className="flex flex-col items-center w-full gap-3 md:border-r md:w-1/3 md:pr-6">
           <h2 className="text-2xl font-bold text-blue-600">Contact Us</h2>
-          <p>
+          <p className="text-center">
             Firdosh Park Society, <br /> Barkoshia Road, Nadiad-387001
           </p>
           <p>
@@ -40,7 +40,7 @@ const Footer = () => {
         </div>
 
         {/* Products + Company */}
-        <div className="grid w-full grid-cols-1 gap-6 md:w-2/3 md:grid-cols-3 ">
+        <div className="hidden w-full grid-cols-1 gap-6 md:grid md:w-2/3 md:grid-cols-3 ">
           {/* Products */}
           <div className="hidden md:block">
             <h2 className="mb-3 text-xl font-semibold">Products</h2>

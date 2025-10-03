@@ -110,7 +110,7 @@ const renderCategories = (items) => (
   return (
     <div>
       <Button
-        className="!font-bold flex items-center gap-2 !text-black w-full justify-start whitespace-normal
+        className="!font-bold flex items-center gap-1 !text-black w-full justify-start whitespace-normal
         "
         onClick={toggleDrawer(true)}
       >

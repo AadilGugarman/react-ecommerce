@@ -62,17 +62,17 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="w-full bg-white shadow-sm">
-      <div className="container px-4 mx-auto">
-        <div className="flex items-center justify-between h-16">
+    <nav className="w-full">
+      <div className="mx-auto md:container">
+        <div className="flex items-center md:h-16 ">
           {/* Category Panel */}
-          <div>
+          <div className="hidden md:block">
             <CategoryPanel />
           </div>
 
           {/* Desktop Nav */}
 
-          <div className="items-center hidden gap-4 md:flex">
+          <div className="items-center hidden gap-1 md:flex">
             {navItems.map((item, index) => (
               <div
                 key={index}
@@ -121,7 +121,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Hamburger */}
-          <div className="md:hidden">
+          <div className="relative md:hidden">
             <button
               onClick={toggleMobileMenu}
               className="p-2 text-gray-700 hover:text-blue-600"
@@ -133,8 +133,8 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="bg-white border-t md:hidden">
-            <div className="px-4 py-2 space-y-2">
+          <div className="absolute left-0 z-50 w-full bg-white border-t md:hidden ">
+            <div className="px-4 py-2 space-y-2 ">
               {navItems.map((item, index) => (
                 <div key={index}>
                   {item.submenus && item.submenus.length > 0 ? (
