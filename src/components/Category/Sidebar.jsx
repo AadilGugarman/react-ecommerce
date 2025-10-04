@@ -3,7 +3,7 @@ import Breadcrumbs from "@mui/material/Breadcrumbs";
 import { Link } from "react-router-dom";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import Box from "@mui/material/Box";
+
 import Slider from "@mui/material/Slider";
 
 const Sidebar = () => {

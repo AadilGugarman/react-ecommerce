@@ -1,8 +1,8 @@
 import React from "react";
-import Header from "./components/Header/Header";
+
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/pages/Home";
-import Footer from "./components/Footer/Footer";
+
 import CategoryPage from "./components/pages/CategoryPage";
 import {
   fashionProducts,
@@ -12,14 +12,21 @@ import {
 
 import "./index.css";
 import "./App.css";
+import HomeLayout from "./components/Layouts/HomeLayout.jsx";
+import MainLayout from "./components/Layouts/MainLayout.jsx";
+
 
 function App() {
   return (
     <>
-      <Header />
+
       <Routes>
+       
+        <Route element={<HomeLayout/>}>
         <Route path="/" element={<Home />} />
-        <Route
+        </Route>
+       <Route element={<MainLayout/>}>
+            <Route
           path="/fashion"
           element={<CategoryPage title="Fashion" products={fashionProducts} />}
         />
@@ -33,8 +40,10 @@ function App() {
           path="/beauty"
           element={<CategoryPage title="Beauty" products={beautyProducts} />}
         />
+       </Route>
+       
       </Routes>
-      <Footer />
+   
     </>
   );
 }
